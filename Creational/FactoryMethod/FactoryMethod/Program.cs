@@ -10,25 +10,56 @@ namespace FactoryMethod
     {
         static void Main(string[] args)
         {
+            Transport transport = ProccessInput(args);
+            CheckTranport(transport);
+            Console.ReadLine();
+        }
+
+        static Transport ProccessInput(string[] input)
+        {
             Transport transport = null;
 
-            if (args.Length > 0 && args[0] == "--uber")
+            if (IsUber(input))
             {
                 transport = new CarTransport();
-            } else if(args.Length > 0 && args[0] == "--log")
+            }
+            else if (isUberEats(input))
             {
                 transport = new MotorcycleTransport();
-            } else
+            }
+            else
             {
                 Console.WriteLine("Selecione o tipo da entrega.");
             }
 
+            return transport;
+        }
+
+        #region Checking
+
+        static bool ExistsArgs(string[] args)
+        {
+            return args.Length > 0;
+        }
+
+        static bool IsUber(string[] args)
+        {
+            return ExistsArgs(args) && args[0] == "--uber";
+        }
+
+        static bool isUberEats(string[] args)
+        {
+            return ExistsArgs(args) && args[0] == "--log";
+        }
+
+        static void CheckTranport(Transport transport)
+        {
             if (transport != null)
             {
                 transport.StartTransport();
             }
-
-            Console.ReadLine();
         }
+
+        #endregion
     }
 }

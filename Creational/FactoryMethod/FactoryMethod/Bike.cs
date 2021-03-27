@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FactoryMethod
 {
+    /// <summary>
+    /// Different implementations of the product interface
+    /// </summary>
     class Bike : IVehicle
     {
         public void GetCargo()

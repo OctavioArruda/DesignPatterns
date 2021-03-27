@@ -2,6 +2,9 @@
 
 namespace FactoryMethod
 {
+    /// <summary>
+    /// Different implementations of the product interface
+    /// </summary>
     class Car : IVehicle
     {
         public void GetCargo()

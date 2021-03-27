@@ -1,7 +1,6 @@
 ﻿namespace FactoryMethod
 {
-    // Car factory
-    class CarTransport : Transport
+    class CarFactory : Transport
     {
         protected override IVehicle CreateTransport()
         {

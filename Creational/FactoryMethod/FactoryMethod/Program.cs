@@ -21,11 +21,15 @@ namespace FactoryMethod
 
             if (IsUber(input))
             {
-                transport = new CarTransport();
+                transport = new CarFactory();
             }
             else if (isUberEats(input))
             {
-                transport = new MotorcycleTransport();
+                transport = new MotorcycleFactory();
+            }
+            else if (isBikeUberEats(input))
+            {
+                transport = new BikeFactory();
             }
             else
             {
@@ -50,6 +54,11 @@ namespace FactoryMethod
         static bool isUberEats(string[] args)
         {
             return ExistsArgs(args) && args[0] == "--log";
+        }
+
+        static bool isBikeUberEats(string[] args)
+        {
+            return ExistsArgs(args) && args[0] == "--bike";
         }
 
         static void CheckTranport(Transport transport)

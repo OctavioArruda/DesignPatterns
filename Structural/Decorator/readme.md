@@ -28,4 +28,3 @@
     - It is possible to decorate an object that already was decorated, adding even more functionalities(layers)
 - __Bad__
   - The more decorators layers you add, the more complex your code become
-  - 
